@@ -1,0 +1,1332 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=3.12.1908.0, Culture=neutral, PublicKeyToken=5e633289e95c321a" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-CA95271269984754886EDBC91C0AC0B6">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-CA95271269984754886EDBC91C0AC0B6" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+      <pnp:WebSettings NoCrawl="false" WelcomePage="SitePages/Home.aspx" CommentsOnSitePagesDisabled="false" QuickLaunchEnabled="false" />
+      <pnp:SiteFields>
+        <Field Type="Choice" DisplayName="Apple Type" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" Group="Fruit" ID="{9fc50479-d0a5-4c36-a425-0ed2d08a8671}" SourceID="{31b91ae4-6787-43ce-a184-42e20fc54750}" StaticName="AppleType" Name="AppleType" CustomFormatter="">
+          <Default>Red Delicious</Default>
+          <CHOICES>
+            <CHOICE>Red Delicious</CHOICE>
+            <CHOICE>Poisoned</CHOICE>
+            <CHOICE>Green</CHOICE>
+          </CHOICES>
+        </Field>
+        <Field Type="Choice" DisplayName="Orange Type" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Dropdown" FillInChoice="FALSE" Group="Fruit" ID="{045707a5-a857-42ff-9602-795688cc7a6a}" SourceID="{31b91ae4-6787-43ce-a184-42e20fc54750}" StaticName="OrangeType" Name="OrangeType" CustomFormatter="">
+          <Default>Navel</Default>
+          <CHOICES>
+            <CHOICE>Navel</CHOICE>
+            <CHOICE>Chocolate</CHOICE>
+            <CHOICE>Actually a Lemon</CHOICE>
+          </CHOICES>
+        </Field>
+      </pnp:SiteFields>
+      <pnp:ContentTypes>
+        <pnp:ContentType ID="0x010004BD8C5F20AEBA4F877AFD6ED4B29A19" Name="Orange" Description="" Group="Fruit" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="045707a5-a857-42ff-9602-795688cc7a6a" Name="OrangeType" Required="true" />
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
+            <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+        <pnp:ContentType ID="0x0100524AA836B3D3C645AA562C045097A54A" Name="Apple" Description="" Group="Fruit" NewFormUrl="" EditFormUrl="" DisplayFormUrl="">
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="9fc50479-d0a5-4c36-a425-0ed2d08a8671" Name="AppleType" Required="true" />
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" />
+            <pnp:FieldRef ID="c042a256-787d-4a6f-8a8a-cf6ab767f12d" Name="ContentType" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+      </pnp:ContentTypes>
+      <pnp:Lists>
+        <pnp:ListInstance Title="Current User's Rows" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Current Users Rows" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Current Users Rows/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Current Users Rows/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Current Users Rows/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{CC490E74-3AE8-4E04-A266-C131D754351A}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Current Users Rows/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="AssignedTo" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="AssignedTo" Format="Dropdown" List="UserInfo" Name="AssignedTo" Title="AssignedTo" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{954b26bb-5765-4a44-9210-da99b39ecda1}" SourceID="{{listid:Current User's Rows}}" StaticName="AssignedTo" ColName="int1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://11-westeurope1.pushp.svc.ms/notifications?token=w1-140038b4-2dc3-40a4-b235-8c65284f15a4" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://6-westeurope1.pushp.svc.ms/notifications?token=w0-f31eb783-3e19-4dc1-9f3e-49083ff4e641" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-e3975a15-ed0b-4972-956e-96677d1801da" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Document Library Items in Tiles Format" Description="" DocumentTemplate="{site}/Document Library Items in Tiles Format/Forms/template.dotx" TemplateType="101" Url="Document Library Items in Tiles Format" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="500" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" ContentTypesEnabled="true" EnableAttachments="false" DefaultDisplayFormUrl="{site}/Document Library Items in Tiles Format/Forms/DispForm.aspx" DefaultEditFormUrl="{site}/Document Library Items in Tiles Format/Forms/EditForm.aspx" DefaultNewFormUrl="{site}/Document Library Items in Tiles Format/Forms/Upload.aspx" ImageUrl="/_layouts/15/images/itdl.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:PropertyBagEntries>
+            <pnp:PropertyBagEntry Key="IsAttachmentLibrary" Value="0" Overwrite="false" />
+          </pnp:PropertyBagEntries>
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{8E55BE31-8095-4968-AF90-A1B5DE4197E7}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="{site}/Document Library Items in Tiles Format/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilename" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Editor" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w0-1104322d-d819-47bd-bb64-ec13235f9c0b" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Planner Inspired Task Cards" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Planner Inspired Task Cards" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Planner Inspired Task Cards/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Planner Inspired Task Cards/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Planner Inspired Task Cards/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{97C09853-882B-4F79-96C4-DAB690A16091}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Planner Inspired Task Cards/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="AssignedTo" />
+                <FieldRef Name="Status" />
+                <FieldRef Name="DueDate" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="AssignedTo" Format="Dropdown" List="UserInfo" Name="AssignedTo" Title="AssignedTo" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{64b7467e-55ef-4930-b250-c230bc062ea7}" SourceID="{{listid:Planner Inspired Task Cards}}" StaticName="AssignedTo" ColName="int1" RowOrdinal="0" />
+            <Field DisplayName="Status" FillInChoice="FALSE" Format="Dropdown" Name="Status" Title="Status" Type="Choice" ID="{939241cd-fe99-4050-9930-c5599b9b2c07}" SourceID="{{listid:Planner Inspired Task Cards}}" StaticName="Status" ColName="nvarchar4" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>In Progress</CHOICE>
+                <CHOICE>Delayed</CHOICE>
+                <CHOICE>Completed</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field DisplayName="DueDate" FriendlyDisplayFormat="Disabled" Format="DateOnly" Name="DueDate" Title="DueDate" Type="DateTime" ID="{393e7657-4e7c-4010-acad-69d428d7ec77}" SourceID="{{listid:Planner Inspired Task Cards}}" StaticName="DueDate" ColName="datetime1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-684e08a6-1333-4720-9eab-78fbb9c85172" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-76bfd865-c9f8-4fd6-b515-41aa45779ab2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w0-7d3ae54e-6e40-41fd-9ff8-478b215ce90d" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-c683714c-2dff-4e8b-a3ef-0e096a19472b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://10-westeurope1.pushp.svc.ms/notifications?token=w1-bd11cf87-2c53-4094-8eff-4e9b787f7a35" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-f0ba28d1-8f53-40a2-a7fb-c9e124af8d7f" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Resource Catalog Sample" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Resource Catalog Sample" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Resource Catalog Sample/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Resource Catalog Sample/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Resource Catalog Sample/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{5DE4ADF2-F3DC-4C53-B960-400DAEE16E05}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Resource Catalog Sample/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="ResourcePillar" />
+                <FieldRef Name="ResourceTechnology" />
+                <FieldRef Name="ResourceStatus" />
+                <FieldRef Name="ResourcePublic" />
+                <FieldRef Name="ResourceOwner" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="ResourcePillar" Format="Dropdown" MaxLength="255" Name="ResourcePillar" Title="ResourcePillar" Type="Text" ID="{127ceb4d-e789-4ca2-92dd-e32befa43bb4}" SourceID="{{listid:Resource Catalog Sample}}" StaticName="ResourcePillar" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="ResourceTechnology" Format="Dropdown" MaxLength="255" Name="ResourceTechnology" Title="ResourceTechnology" Type="Text" ID="{bc1788c7-dc8e-4d9d-bdfd-71c83fa9b347}" SourceID="{{listid:Resource Catalog Sample}}" StaticName="ResourceTechnology" ColName="nvarchar5" RowOrdinal="0" />
+            <Field DisplayName="ResourceStatus" Format="Dropdown" MaxLength="255" Name="ResourceStatus" Title="ResourceStatus" Type="Text" ID="{934442ca-6458-4bc9-97c9-949aa7934518}" SourceID="{{listid:Resource Catalog Sample}}" StaticName="ResourceStatus" ColName="nvarchar6" RowOrdinal="0" />
+            <Field DisplayName="ResourcePublic" Format="Dropdown" Name="ResourcePublic" Title="ResourcePublic" Type="Boolean" ID="{81882ac9-3ed8-4d0f-88cc-92e5fceaa8ce}" SourceID="{{listid:Resource Catalog Sample}}" StaticName="ResourcePublic" ColName="bit1" RowOrdinal="0">
+              <Default>1</Default>
+            </Field>
+            <Field DisplayName="ResourceOwner" Format="Dropdown" List="UserInfo" Name="ResourceOwner" Title="ResourceOwner" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{982c7012-1cba-4723-948d-4f51e383cbd7}" SourceID="{{listid:Resource Catalog Sample}}" StaticName="ResourceOwner" ColName="int1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-3a168921-040d-4b9d-937e-203f90b5c450" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-a0080c9c-a556-49df-b386-629baada26ac" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-d346adb5-2bf1-46ca-9507-63ba881a2fe7" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w0-d75b2f3a-3b63-4485-a132-15a199275c89" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w2-24d61c1d-da6b-487a-8f64-c1a3dbdd61f0" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://10-westeurope1.pushp.svc.ms/notifications?token=w0-dd5ee874-b7cf-45d6-96a5-4cade832cf50" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-5d90fb4e-762d-43de-9205-3f29588c293b" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Retail Account Sample" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Retail Account Sample" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Retail Account Sample/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Retail Account Sample/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Retail Account Sample/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{4245B99A-65A6-47E2-AE3E-0FE7B0AF56A3}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Retail Account Sample/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="AccountManager" />
+                <FieldRef Name="SalesTarget" />
+                <FieldRef Name="HolidayDisplayRead" />
+                <FieldRef Name="Location" />
+                <FieldRef Name="Street" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+             </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Account Manager" Format="Dropdown" List="UserInfo" Name="AccountManager" Title="Account Manager" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{8c4ec853-2130-4821-9b13-e97fc76d35e1}" SourceID="{{listid:Retail Account Sample}}" StaticName="AccountManager" ColName="int1" RowOrdinal="0" />
+            <Field DisplayName="Sales Target" Format="Dropdown" LCID="1033" Name="SalesTarget" Title="Sales Target" Type="Currency" ID="{be569d24-6ca1-4a0a-a036-2a7f636a7665}" SourceID="{{listid:Retail Account Sample}}" StaticName="SalesTarget" ColName="float1" RowOrdinal="0" />
+            <Field DisplayName="Holiday Display Read" Format="Dropdown" Name="HolidayDisplayRead" Title="Holiday Display Read" Type="Boolean" ID="{5212fc90-5eeb-475d-9291-1e8b1dfaf112}" SourceID="{{listid:Retail Account Sample}}" StaticName="HolidayDisplayRead" ColName="bit1" RowOrdinal="0">
+              <Default>1</Default>
+            </Field>
+            <Field DisplayName="Location" Format="Dropdown" Name="Location" Title="Location" Type="Location" ID="{d5d235cf-e88b-41a8-9aed-2b17180fcaf5}" SourceID="{{listid:Retail Account Sample}}" StaticName="Location" ColName="ntext2" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: Country/Region" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5CountryOrRegion" Name="CountryOrRegion" ID="{ac77eede-6577-4730-84b8-9a19e1da5117}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar4" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: State" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5State" Name="State" ID="{0f3ec9c1-4bf6-491f-9979-ba270e3036ab}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar5" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: City" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5City" Name="City" ID="{03190707-0cb1-4e33-aa69-7c073bbcbed3}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar6" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: Postal Code" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5PostalCode" Name="PostalCode" ID="{7c0d91a4-efe2-43b3-8aa3-07d1b26e3011}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar7" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: Street" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5Street" Name="Street" ID="{a2f6a960-2dbd-4ac8-806c-30c0a41b60c5}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar8" RowOrdinal="0" />
+            <Field Type="Geolocation" DisplayName="Location: Coordinates" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5GeoLoc" Name="GeoLoc" ID="{2a9d4d9c-9426-498c-bb01-412ff3fd2693}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="geography1" RowOrdinal="0" />
+            <Field Type="Text" DisplayName="Location: Name" StaticName="d5d235cf-e88b-41a8-9aed-2b17180fcaf5DispName" Name="DispName" ID="{40dbf3f0-1dda-4ac5-a56d-ba729d3fb5be}" ShowInViewForms="TRUE" Required="FALSE" Hidden="FALSE" CanToggleHidden="TRUE" FieldRef="d5d235cf-e88b-41a8-9aed-2b17180fcaf5" ReadOnly="TRUE" Sealed="TRUE" AllowDeletion="TRUE" FromBaseType="TRUE" Filterable="TRUE" Sortable="TRUE" SourceID="{{listid:Retail Account Sample}}" ColName="nvarchar9" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w2-9a6a480a-8118-4054-a137-e4d7f70b1dae" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-c0bbfdde-d2de-4d45-a67f-0abe3398f98b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-17f88db0-52e7-43fc-9259-a701142b426f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-0f675a13-abc9-4824-8859-326b3e3b7a85" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w0-d018c890-141e-401f-9c65-02cc9f2622f2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w2-d5beead2-0360-4c8c-b568-b636c0d10fac" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-6efc43da-2bf6-42a2-921c-d92bde7e9cc2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-e57c5379-d50f-4811-8400-712a73bff096" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://7-westeurope1.pushp.svc.ms/notifications?token=w1-81cf9fd7-cd08-408a-be9c-23c4482de35b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-c2f02c13-ceb2-4302-ba3c-a9bfc8a44486" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Small Card" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Small Card" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Small Card/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Small Card/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Small Card/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{0D57C7CE-D778-4EE5-AD9E-01AC47380345}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Small Card/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Linkedin" />
+                <FieldRef Name="JobTitle" />
+                <FieldRef Name="PhoneNumber" />
+                <FieldRef Name="Person" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Linkedin" Format="Hyperlink" Name="Linkedin" Title="Linkedin" Type="URL" ID="{63cf5cd2-da8a-4886-bab8-4db85610be23}" Version="2" StaticName="Linkedin" SourceID="{{listid:Small Card}}" ColName="nvarchar4" RowOrdinal="0" ColName2="nvarchar5" RowOrdinal2="0" />
+            <Field DisplayName="Job Title" Format="Dropdown" MaxLength="255" Name="JobTitle" Title="Job Title" Type="Text" ID="{d6848dcc-5bee-4531-9b73-0a14336cac7f}" SourceID="{{listid:Small Card}}" StaticName="JobTitle" ColName="nvarchar6" RowOrdinal="0" />
+            <Field DisplayName="Phone Number" Format="Dropdown" MaxLength="255" Name="PhoneNumber" Title="Phone Number" Type="Text" ID="{a0ce0f40-c6fa-44b5-b186-7e69dd440d72}" SourceID="{{listid:Small Card}}" StaticName="PhoneNumber" ColName="nvarchar7" RowOrdinal="0" />
+            <Field DisplayName="Person" Format="Dropdown" List="UserInfo" Name="Person" Title="Person" Type="User" UserSelectionMode="PeopleOnly" UserSelectionScope="0" ID="{39ce6184-c07f-4416-be3c-7852bc15427b}" SourceID="{{listid:Small Card}}" StaticName="Person" ColName="int1" RowOrdinal="0" Required="FALSE" EnforceUniqueValues="FALSE" Group="" ShowField="NameWithPictureAndDetails" Version="1" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w2-af0b7723-cce9-41e1-9228-923d6ae8c291" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-6359fd13-4e44-49df-9946-67226ae27920" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-063037ff-9cb7-43fc-8319-38c58047aac7" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w3-2a3aca47-a849-4a7a-b3eb-52385167e797" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w0-de239fee-abfa-424b-8d45-a4e0312999eb" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w0-f3bb84a5-b4d8-451d-9702-64d7d30894fa" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w3-aa6f7979-525b-470e-a4da-073c380ca62c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-d5fd49e8-b9fc-425c-a02b-b93f6761d0fc" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w3-726942ba-c90b-413c-9111-db34f8c1ac32" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w2-6d6d6b56-a2ff-43d3-b546-d1439d456f9f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-4b2bfee5-56dc-42dd-abad-22bd14d253ad" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-8619c4aa-9a09-4e39-8b92-675260084e60" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w2-3757890d-5d4e-4467-a5bb-1690156b353c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-c065906a-04b9-46e3-977d-99f524d063dd" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="User Profile Card" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/User Profile Card" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/User Profile Card/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/User Profile Card/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/User Profile Card/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{B164E69B-0BD5-41D4-A5A9-88B492E02C89}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/User Profile Card/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="User" />
+                <FieldRef Name="Picture" />
+                <FieldRef Name="LinkedIn" />
+                <FieldRef Name="Twitter" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+             </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="User" Format="Dropdown" List="UserInfo" Name="User" Title="User" Type="User" UserSelectionMode="0" UserSelectionScope="0" ID="{f56e4301-38e9-444a-98ee-a77a316e1b67}" SourceID="{{listid:User Profile Card}}" StaticName="User" ColName="int1" RowOrdinal="0" />
+            <Field DisplayName="Picture" Format="Image" Name="Picture" Title="Picture" Type="URL" ID="{b8fc0ead-aa99-4014-b7d8-dbee8ffaf0a5}" SourceID="{{listid:User Profile Card}}" StaticName="Picture" ColName="nvarchar4" RowOrdinal="0" ColName2="nvarchar5" RowOrdinal2="0" />
+            <Field DisplayName="LinkedIn" Format="Image" Name="LinkedIn" Title="LinkedIn" Type="URL" ID="{05dbdaab-99d0-4c5a-b9bd-7f0d54b28cb4}" SourceID="{{listid:User Profile Card}}" StaticName="LinkedIn" ColName="nvarchar6" RowOrdinal="0" ColName2="nvarchar7" RowOrdinal2="0" />
+            <Field DisplayName="Twitter" Format="Hyperlink" Name="Twitter" Title="Twitter" Type="URL" ID="{15ee60cb-d958-4fc2-9e18-e47792f83541}" SourceID="{{listid:User Profile Card}}" StaticName="Twitter" ColName="nvarchar8" RowOrdinal="0" ColName2="nvarchar9" RowOrdinal2="0" />
+          </pnp:Fields>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w2-d05f75de-577a-481d-b8e5-d8bf12a82940" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w0-bf7b4cb6-7fd6-4dd5-b0e6-15c4c9df7ece" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-ebb476cc-5958-484a-930c-2e15f9d92d3b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-c38976c9-6bc7-4ef3-a3dc-24e16c8ed064" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://8-westeurope1.pushp.svc.ms/notifications?token=w3-817c53a1-d123-483b-800b-b6ae834a7db5" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-38ebde78-9b15-4a1a-8ff0-2eb04d7cc8ef" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Alternating Rows" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Alternating Rows" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Alternating Rows/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Alternating Rows/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Alternating Rows/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{3101AA4C-F587-42F2-A2BA-01FF9769C3DA}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Alternating Rows/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Row 1</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Row 2</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Row 3</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-6553d6f2-6b2c-40a2-abda-f42b0a6b008f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-be3bf1ce-17c9-4d97-a3f8-a47a5ff47de4" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-5c9cd720-3099-401f-9ee6-521e7a67a080" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-009330e1-3f05-4d08-8226-08fe058901cb" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-573085bf-2bf9-4cae-ab8b-39d408d4a8e6" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Birthday Row Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Birthday Row Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Birthday Row Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Birthday Row Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Birthday Row Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{E84FCD94-6295-4DBE-B07C-F085D54C6537}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Birthday Row Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="JobTitle" />
+                <FieldRef Name="Email" />
+                <FieldRef Name="Birthday" />
+                <FieldRef Name="BirthMonthDay" />
+                <FieldRef Name="Picture" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="JobTitle" Format="Dropdown" MaxLength="255" Name="JobTitle" Title="JobTitle" Type="Text" ID="{0ba70076-967c-4785-b39e-449d7e9ec329}" SourceID="{{listid:Birthday Row Format}}" StaticName="JobTitle" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="Email" Format="Dropdown" MaxLength="255" Name="Email" Title="Email" Type="Text" ID="{4e2f02d3-da07-4858-a0ae-57cf5ef73630}" SourceID="{{listid:Birthday Row Format}}" StaticName="Email" ColName="nvarchar5" RowOrdinal="0" />
+            <Field DisplayName="Birthday" FriendlyDisplayFormat="Disabled" Format="DateOnly" Name="Birthday" Title="Birthday" Type="DateTime" ID="{1d35a5b8-e442-49d9-a832-9087b3928cb5}" SourceID="{{listid:Birthday Row Format}}" StaticName="Birthday" ColName="datetime1" RowOrdinal="0" />
+            <Field Type="Calculated" DisplayName="BirthMonthDay" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="DateOnly" LCID="1033" ResultType="Text" ReadOnly="TRUE" ID="{d9fd15e0-797d-4b77-a8ad-103c5ddf5aba}" SourceID="{{listid:Birthday Row Format}}" StaticName="BirthMonthDay" Name="BirthMonthDay" ColName="sql_variant1" RowOrdinal="0">
+              <Formula>=CONCATENATE(TEXT([{fieldtitle:Birthday}],"MMMM")," ",TEXT([{fieldtitle:Birthday}],"DD"))</Formula>
+            </Field>
+            <Field DisplayName="Picture" Format="Image" Name="Picture" Title="Picture" Type="URL" ID="{ab3330d9-d319-4cb9-973f-014cb2647e52}" SourceID="{{listid:Birthday Row Format}}" StaticName="Picture" ColName="nvarchar6" RowOrdinal="0" ColName2="nvarchar7" RowOrdinal2="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">João Ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="JobTitle">Technical Lead</pnp:DataValue>
+              <pnp:DataValue FieldName="Email">joaoferreira@handsontek.net</pnp:DataValue>
+              <pnp:DataValue FieldName="Birthday">3/24/1987 8:00:00 AM</pnp:DataValue>
+              <pnp:DataValue FieldName="Picture">https://pbs.twimg.com/profile_images/1117701442167554048/btg98Wqo_400x400.jpg</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-7d3df4b7-f6e9-4c0b-94b0-9acc8c71a1df" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-4c27c7d5-c72f-43c3-a97f-3d227a7c0cb3" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w3-03d0f99c-8ec1-4271-add0-5c7b908fa4fe" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-0658f047-9732-4ea2-9ee3-79b4400cc091" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-fb5c08ac-9a5e-4bb5-a309-c4562338200d" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-e4659f78-cab1-4d99-92c4-b8dee35ac92e" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Bulletin Board" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Bulletin Board" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Bulletin Board/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Bulletin Board/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Bulletin Board/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{01166194-7481-42E3-B9E2-07796822593F}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Bulletin Board/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Category" />
+                <FieldRef Name="Details" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Category" FillInChoice="FALSE" Format="Dropdown" Name="Category" Title="Category" Type="Choice" ID="{bf9dfc08-84b7-4ba3-b5c1-073a875f6983}" SourceID="{{listid:Bulletin Board}}" StaticName="Category" ColName="nvarchar4" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Books For Sale</CHOICE>
+                <CHOICE>Ride Share</CHOICE>
+                <CHOICE>Electronics For Sale</CHOICE>
+                <CHOICE>General For Sale</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field AppendOnly="FALSE" DisplayName="Details" Format="Dropdown" IsolateStyles="FALSE" Name="Details" NumLines="6" RichText="FALSE" RichTextMode="Compatible" Title="Details" Type="Note" ID="{f6389b67-8a2e-42ea-9326-84e957b48dba}" SourceID="{{listid:Bulletin Board}}" StaticName="Details" ColName="ntext2" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">8/22/2018</pnp:DataValue>
+              <pnp:DataValue FieldName="Category">Books For Sale</pnp:DataValue>
+              <pnp:DataValue FieldName="Details">ISO University Physics with Modern Physics (14th Edition)</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">8/22/2018</pnp:DataValue>
+              <pnp:DataValue FieldName="Category">Ride Share</pnp:DataValue>
+              <pnp:DataValue FieldName="Details">Heading to Indianapolis</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">8/22/2018</pnp:DataValue>
+              <pnp:DataValue FieldName="Category">Electronics For Sale</pnp:DataValue>
+              <pnp:DataValue FieldName="Details">Pristine Desktop running Windows ME - $2,400</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">8/22/2018</pnp:DataValue>
+              <pnp:DataValue FieldName="Category">General For Sale</pnp:DataValue>
+              <pnp:DataValue FieldName="Details">2 Tickets for a Hot Air Ballon Ride Arround the World!</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">400</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">4_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-adcd25d9-0b60-49f8-85e6-2333fbf013b0" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-d994a3be-5e0d-4a22-a547-d179fd037543" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w2-68f565d1-4201-448c-8402-bf06f6a0f8d2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w3-53d2fe38-f303-4568-b63b-d217761353a2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w3-3600e78c-8e32-4f85-a70d-c1091435c888" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w1-3ae0501f-8a83-49f3-96a7-dcf4e106df99" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w1-b58a76d6-0461-440b-9555-fc1980aab6e1" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-4851ca24-330f-4973-93c7-34727b162042" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Choice Conditional Formatting" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Choice Conditional Formatting" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Choice Conditional Formatting/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Choice Conditional Formatting/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Choice Conditional Formatting/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{9E19B1EB-8D80-4BF2-9F7E-D1E793A7E483}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Choice Conditional Formatting/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Status" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Status" FillInChoice="FALSE" Format="Dropdown" Name="Status" Title="Status" Type="Choice" ID="{b689b922-2357-4897-b961-140699bd4108}" SourceID="{{listid:Choice Conditional Formatting}}" StaticName="Status" ColName="nvarchar4" RowOrdinal="0" CustomFormatter="" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Version="1">
+              <CHOICES>
+                <CHOICE>Awaiting Approval</CHOICE>
+                <CHOICE>Complete</CHOICE>
+                <CHOICE>In Progress</CHOICE>
+                <CHOICE>Ready to Deploy</CHOICE>
+              </CHOICES>
+            </Field>
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Customer 1</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">Awaiting Approval</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Customer 2</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">Complete</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Customer 3</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">In Progress</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Customer 4</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">Ready to Deploy</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">400</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">4_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-ef14a64b-eefe-4516-a7d8-0927003d9c18" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-a8c864eb-b962-4806-9810-0128b3a3c314" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-40764cc1-f5b9-4069-a5b1-2892cced792f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w0-ef7c2719-d57c-4ba2-88cd-e7e5eb98fc2e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-321230db-c3a9-4007-856c-bea52785b0d6" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Column Graph format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Column Graph format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Column Graph format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Column Graph format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Column Graph format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{07A80A38-14B7-4D4F-B56B-9937DEA3B93F}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Column Graph format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Views" />
+                <FieldRef Name="MostRead" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Views" Format="Dropdown" Name="Views" Percentage="FALSE" Title="Views" Type="Number" ID="{1450dead-045f-49ea-aef0-d90facae9630}" SourceID="{{listid:Column Graph format}}" StaticName="Views" ColName="float1" RowOrdinal="0" />
+            <Field DisplayName="MostRead" Format="Dropdown" Name="MostRead" Title="MostRead" Type="Boolean" ID="{aa360821-6c27-4fcc-80b8-79e06aa338f3}" SourceID="{{listid:Column Graph format}}" StaticName="MostRead" ColName="bit1" RowOrdinal="0">
+              <Default>1</Default>
+            </Field>
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Monday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">500</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Tuesday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">250</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Wednesday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">600</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Thursday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">1000</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">True</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">400</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">4_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Friday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">446</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">500</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">5_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Saturday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">720</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">600</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">6_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Sunday</pnp:DataValue>
+              <pnp:DataValue FieldName="Views">127</pnp:DataValue>
+              <pnp:DataValue FieldName="MostRead">False</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">700</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">7_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-5bc8478f-7b26-4578-895e-8bdc267ee563" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-68aa9c15-bcf8-443a-a0d9-afdc84564b30" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-88108f53-5f20-40e5-9123-9b5005d26035" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w2-16b50657-e310-49e8-abfb-00443713a998" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w1-e28ffc11-bc5e-4fda-92e2-c8305b3dfa86" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Conditional formatting based on date" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Conditional formatting based on date" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Conditional formatting based on date/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Conditional formatting based on date/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Conditional formatting based on date/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{20391AAF-74B1-41E6-801A-8F32FA6F6C0B}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Conditional formatting based on date/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Feedback" />
+                <FieldRef Name="DueDate" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field AppendOnly="FALSE" DisplayName="Feedback" Format="Dropdown" IsolateStyles="FALSE" Name="Feedback" NumLines="6" RichText="FALSE" RichTextMode="Compatible" Title="Feedback" Type="Note" ID="{3bc836ac-52c2-457a-952e-1970a2135033}" SourceID="{{listid:Conditional formatting based on date}}" StaticName="Feedback" ColName="ntext2" RowOrdinal="0" />
+            <Field DisplayName="DueDate" FriendlyDisplayFormat="Disabled" Format="DateOnly" Name="DueDate" Title="DueDate" Type="DateTime" ID="{ce1708e6-fee9-41b0-8fca-454f78926b35}" SourceID="{{listid:Conditional formatting based on date}}" StaticName="DueDate" ColName="datetime1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Provide feedback on execution plan</pnp:DataValue>
+              <pnp:DataValue FieldName="Feedback">Do more with less!
+Focus on customer requirements.</pnp:DataValue>
+              <pnp:DataValue FieldName="DueDate">9/1/2019 7:00:00 AM</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Provide feedback on executive retreat</pnp:DataValue>
+              <pnp:DataValue FieldName="Feedback">A lot got done.
+The agenda was a bit hectic.</pnp:DataValue>
+              <pnp:DataValue FieldName="DueDate">9/5/2026 7:00:00 AM</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Provide feedback on happy hour menu</pnp:DataValue>
+              <pnp:DataValue FieldName="Feedback">Truly world class!</pnp:DataValue>
+              <pnp:DataValue FieldName="DueDate">9/4/2019 7:00:00 AM</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://11-westeurope1.pushp.svc.ms/notifications?token=w0-453cc365-887b-41c8-9be2-c01520773b2f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-e0220305-546c-4c3e-8ee5-7d84ffaa3eed" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-de1c3c14-fc9a-4710-b77c-3639826347fc" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-0aa6bd02-5e24-4558-9d1c-29531bf081d4" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w1-4ceef9e1-1d5f-4750-aaa9-388d7daa246c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-22497d9c-9ed9-41c5-a535-d553151924a8" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w3-4fea34e6-e773-4144-bad5-6f00a326118c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-2e5d17f9-05fe-450c-b953-2cf8815ebe99" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w2-2f816376-ed0c-4955-8c04-2134df86f1ad" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://7-westeurope1.pushp.svc.ms/notifications?token=w1-9c666b19-1fcf-4882-996b-aee1f3835151" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w1-4c30d201-4f72-4a73-bc4f-a3d47abb0394" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Contact Card Row Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Contact Card Row Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Contact Card Row Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Contact Card Row Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Contact Card Row Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{93C00896-3BD2-436E-BCD0-107B8F42C1BC}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Contact Card Row Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="JobTitle" />
+                <FieldRef Name="Company" />
+                <FieldRef Name="Email" />
+                <FieldRef Name="Phone" />
+                <FieldRef Name="StreetAddress" />
+                <FieldRef Name="City" />
+                <FieldRef Name="State" />
+                <FieldRef Name="ZipCode" />
+                <FieldRef Name="Picture" />
+                <FieldRef Name="Notes" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="JobTitle" Format="Dropdown" MaxLength="255" Name="JobTitle" Title="JobTitle" Type="Text" ID="{795151ab-7783-4994-88d3-0e50122d6b91}" SourceID="{{listid:Contact Card Row Format}}" StaticName="JobTitle" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="Company" Format="Dropdown" MaxLength="255" Name="Company" Title="Company" Type="Text" ID="{a16fd681-eb25-447e-9cc3-5140de492395}" SourceID="{{listid:Contact Card Row Format}}" StaticName="Company" ColName="nvarchar5" RowOrdinal="0" />
+            <Field DisplayName="Email" Format="Dropdown" MaxLength="255" Name="Email" Title="Email" Type="Text" ID="{d1d7c29b-fddc-4124-8673-dbff8d24b7a2}" SourceID="{{listid:Contact Card Row Format}}" StaticName="Email" ColName="nvarchar6" RowOrdinal="0" />
+            <Field DisplayName="Phone" Format="Dropdown" MaxLength="255" Name="Phone" Title="Phone" Type="Text" ID="{17a04318-edc2-4e5f-bb4b-98e01df4b5fa}" SourceID="{{listid:Contact Card Row Format}}" StaticName="Phone" ColName="nvarchar7" RowOrdinal="0" />
+            <Field DisplayName="StreetAddress" Format="Dropdown" MaxLength="255" Name="StreetAddress" Title="StreetAddress" Type="Text" ID="{8229ee59-965a-4de6-9758-36e0a1554e48}" SourceID="{{listid:Contact Card Row Format}}" StaticName="StreetAddress" ColName="nvarchar8" RowOrdinal="0" />
+            <Field DisplayName="City" Format="Dropdown" MaxLength="255" Name="City" Title="City" Type="Text" ID="{92eb8aeb-639f-455f-b0d9-f66c0ab2b883}" SourceID="{{listid:Contact Card Row Format}}" StaticName="City" ColName="nvarchar9" RowOrdinal="0" />
+            <Field DisplayName="State" Format="Dropdown" MaxLength="255" Name="State" Title="State" Type="Text" ID="{f9130eff-5a97-45b2-bca0-d42a77e395bf}" SourceID="{{listid:Contact Card Row Format}}" StaticName="State" ColName="nvarchar10" RowOrdinal="0" />
+            <Field DisplayName="ZipCode" Format="Dropdown" MaxLength="255" Name="ZipCode" Title="ZipCode" Type="Text" ID="{c4b11842-2797-4999-8fee-3ad6d660b05f}" SourceID="{{listid:Contact Card Row Format}}" StaticName="ZipCode" ColName="nvarchar11" RowOrdinal="0" />
+            <Field DisplayName="Picture" Format="Image" Name="Picture" Title="Picture" Type="URL" ID="{a462291b-390e-408e-b420-ab94ba584137}" SourceID="{{listid:Contact Card Row Format}}" StaticName="Picture" ColName="nvarchar12" RowOrdinal="0" ColName2="nvarchar13" RowOrdinal2="0" />
+            <Field AppendOnly="FALSE" DisplayName="Notes" Format="Dropdown" IsolateStyles="FALSE" Name="Notes" NumLines="6" RichText="FALSE" RichTextMode="Compatible" Title="Notes" Type="Note" ID="{a60b3653-6cc3-4080-bc56-e81f609f0259}" SourceID="{{listid:Contact Card Row Format}}" StaticName="Notes" ColName="ntext2" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">João Ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="JobTitle">Technical Lead</pnp:DataValue>
+              <pnp:DataValue FieldName="Company">HANDS ON tek</pnp:DataValue>
+              <pnp:DataValue FieldName="Email">joaoferreira@handsontek.net</pnp:DataValue>
+              <pnp:DataValue FieldName="Phone">916875678</pnp:DataValue>
+              <pnp:DataValue FieldName="StreetAddress">Fifth Avenue</pnp:DataValue>
+              <pnp:DataValue FieldName="City">New York </pnp:DataValue>
+              <pnp:DataValue FieldName="State" />
+              <pnp:DataValue FieldName="ZipCode">10012</pnp:DataValue>
+              <pnp:DataValue FieldName="Picture">https://pbs.twimg.com/profile_images/1117701442167554048/btg98Wqo_400x400.jpg,Joao</pnp:DataValue>
+              <pnp:DataValue FieldName="Notes">HANDS ON SharePoint blog author</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-511d8911-0416-4587-a367-099714f45b4c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-290ac0d6-0032-4d81-852d-7da7fcd9cd25" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w2-79479e84-4f5d-4f76-b70c-3d95b608caf3" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-827eab28-92aa-4423-b4ad-8e0171aa306e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://7-westeurope1.pushp.svc.ms/notifications?token=w1-71348cc8-52f6-4f76-830f-3af896da94a6" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w2-6b804453-5a8c-4073-a5ac-494fd3317963" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Fruit" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Fruit" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableAttachments="false" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Fruit/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Fruit/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Fruit/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=45" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100524AA836B3D3C645AA562C045097A54A" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+            <pnp:ContentTypeBinding ContentTypeID="0x010004BD8C5F20AEBA4F877AFD6ED4B29A19" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{C8333ADA-D017-422E-A72E-6B10E199D0C6}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Fruit/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="Title" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="AppleType" />
+                <FieldRef Name="OrangeType" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="9fc50479-d0a5-4c36-a425-0ed2d08a8671" Name="AppleType" DisplayName="Apple Type" />
+            <pnp:FieldRef ID="045707a5-a857-42ff-9602-795688cc7a6a" Name="OrangeType" DisplayName="Orange Type" />
+          </pnp:FieldRefs>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Red Apple</pnp:DataValue>
+              <pnp:DataValue FieldName="AppleType">Red Delicious</pnp:DataValue>
+              <pnp:DataValue FieldName="OrangeType" />
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Orange</pnp:DataValue>
+              <pnp:DataValue FieldName="AppleType" />
+              <pnp:DataValue FieldName="OrangeType">Navel</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Lemon</pnp:DataValue>
+              <pnp:DataValue FieldName="AppleType" />
+              <pnp:DataValue FieldName="OrangeType">Actually a Lemon</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-2c0a6a27-9bef-4784-b622-11bc57b2ca53" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-180faa9d-e238-488a-ac7e-135112263971" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w2-8e4e7bfd-e973-49b6-ace8-355b6f6e516a" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w2-23153d17-0b93-4eb3-b1fc-cb1c174764fe" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://10-westeurope1.pushp.svc.ms/notifications?token=w1-96f7faa8-b1b4-4194-991f-50e1f736aa7e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-50c8e952-e5b2-4eb5-8595-ade4d9ffd0a3" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Generic Tile Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Generic Tile Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Generic Tile Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Generic Tile Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Generic Tile Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{36842676-E414-478B-ADBB-0D05C4C0A2AD}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Generic Tile Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Icon" />
+                <FieldRef Name="NewTab" />
+                <FieldRef Name="URL" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Icon" Format="Dropdown" MaxLength="255" Name="Icon" Title="Icon" Type="Text" ID="{62e4665c-202d-435b-8958-9f531aec40ff}" SourceID="{{listid:Generic Tile Format}}" StaticName="Icon" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="NewTab" Format="Dropdown" Name="NewTab" Title="NewTab" Type="Boolean" ID="{537cf081-029f-47e7-bef9-990f83d4f77b}" SourceID="{{listid:Generic Tile Format}}" StaticName="NewTab" ColName="bit1" RowOrdinal="0">
+              <Default>0</Default>
+            </Field>
+            <Field Type="Text" DisplayName="URL" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{e6dad05f-4e87-409c-88ad-6bd465a289ea}" SourceID="{{listid:Generic Tile Format}}" StaticName="URL" Name="URL" ColName="nvarchar5" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">SharePoint</pnp:DataValue>
+              <pnp:DataValue FieldName="Icon">SharePointLogo</pnp:DataValue>
+              <pnp:DataValue FieldName="NewTab">True</pnp:DataValue>
+              <pnp:DataValue FieldName="URL">https://sharepoint.handsontek.net/</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Teams</pnp:DataValue>
+              <pnp:DataValue FieldName="Icon">TeamsLogo</pnp:DataValue>
+              <pnp:DataValue FieldName="NewTab">True</pnp:DataValue>
+              <pnp:DataValue FieldName="URL">https://teams.handsontek.net/</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-de911265-42f3-4c48-9977-d01187a84156" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w0-19c79ca2-b2bb-4246-87d6-121a907ac90f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-897b0d5a-9c6e-4024-9d3f-99146b928467" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-f10a843d-eb25-49c1-ab71-2113ec7a5fbc" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://8-westeurope1.pushp.svc.ms/notifications?token=w2-d2139152-85ab-4c3c-882e-33b5c34a505e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w2-f76512e5-245a-40a8-9dc4-2ba67dfb8ee7" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Multi-line view" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Multiline view" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Multiline view/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Multiline view/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Multiline view/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{63057BB4-1B72-424A-9F07-D81AEF05DEE4}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Multiline view/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Feedback" />
+                <FieldRef Name="Assigned_x0020_To" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field AppendOnly="FALSE" DisplayName="Feedback" Format="Dropdown" IsolateStyles="FALSE" Name="Feedback" NumLines="6" RichText="FALSE" RichTextMode="Compatible" Title="Feedback" Type="Note" ID="{1041b323-ec65-47ac-8d7f-cb9226c8f7db}" SourceID="{{listid:Multi-line view}}" StaticName="Feedback" ColName="ntext2" RowOrdinal="0" />
+            <Field Type="User" DisplayName="Assigned To" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" ID="{f8d413af-fc8f-4bc4-8ff5-f8c02be1bf2b}" SourceID="{{listid:Multi-line view}}" StaticName="Assigned_x0020_To" Name="Assigned_x0020_To" ColName="int1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Provide feedback on execution plan</pnp:DataValue>
+              <pnp:DataValue FieldName="Feedback">Do more with less!
+Focus on customer requirements
+</pnp:DataValue>
+              <pnp:DataValue FieldName="Assigned_x0020_To" />
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w1-cc5452d2-c5ee-4329-b374-b15ce67b5b86" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-287c9ca3-f3f3-422d-b2aa-9b1837d8fe6c" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w0-332ee12e-5895-4100-9537-4a69e2bdd498" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w3-6781a38f-cfb1-4742-afdb-b9485729ca8f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w2-07e3d3e2-a6c3-4fb5-9629-a1e832764432" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-ef06c147-6b23-41ac-9ed0-09c7cea40a5e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-ce346820-8a06-4780-91d6-4e83cb841bb9" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Numeric Average Comparison" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Numeric Average Comparison" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Numeric Average Comparison/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Numeric Average Comparison/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Numeric Average Comparison/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{FF9A0781-AEB0-458F-8ECF-D94C85147ED3}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Numeric Average Comparison/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="StudentName" />
+                <FieldRef Name="Q1NumericGrade" />
+                <FieldRef Name="Q2NumericGrade" />
+                <FieldRef Name="Q3NumericGrade" />
+                <FieldRef Name="Q4NumericGrade" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="StudentName" Format="Dropdown" MaxLength="255" Name="StudentName" Title="StudentName" Type="Text" ID="{b97b6702-2b7b-4493-81b7-567b3da2f927}" SourceID="{{listid:Numeric Average Comparison}}" StaticName="StudentName" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="Q1NumericGrade" Format="Dropdown" Name="Q1NumericGrade" Percentage="FALSE" Required="TRUE" Title="Q1NumericGrade" Type="Number" ID="{a0c23bcc-2a8e-43cf-ba05-00401ceddda1}" SourceID="{{listid:Numeric Average Comparison}}" StaticName="Q1NumericGrade" ColName="float1" RowOrdinal="0" />
+            <Field DisplayName="Q2NumericGrade" Format="Dropdown" Name="Q2NumericGrade" Percentage="FALSE" Required="TRUE" Title="Q2NumericGrade" Type="Number" ID="{bcb462ba-026a-4ce6-b063-6c0936afed01}" SourceID="{{listid:Numeric Average Comparison}}" StaticName="Q2NumericGrade" ColName="float2" RowOrdinal="0" />
+            <Field DisplayName="Q3NumericGrade" Format="Dropdown" Name="Q3NumericGrade" Percentage="FALSE" Required="TRUE" Title="Q3NumericGrade" Type="Number" ID="{e6661e07-dd09-4169-9852-5915efe6d25e}" SourceID="{{listid:Numeric Average Comparison}}" StaticName="Q3NumericGrade" ColName="float3" RowOrdinal="0" />
+            <Field DisplayName="Q4NumericGrade" Format="Dropdown" Name="Q4NumericGrade" Percentage="FALSE" Required="TRUE" Title="Q4NumericGrade" Type="Number" ID="{bb588ad6-444e-4b9e-b58b-d8b53835810b}" SourceID="{{listid:Numeric Average Comparison}}" StaticName="Q4NumericGrade" ColName="float4" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">João Ferreira (@joao12ferreira)</pnp:DataValue>
+              <pnp:DataValue FieldName="StudentName">João Ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="Q1NumericGrade">100</pnp:DataValue>
+              <pnp:DataValue FieldName="Q2NumericGrade">80</pnp:DataValue>
+              <pnp:DataValue FieldName="Q3NumericGrade">75</pnp:DataValue>
+              <pnp:DataValue FieldName="Q4NumericGrade">95</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">David Warner II (@DavidWarnerII)</pnp:DataValue>
+              <pnp:DataValue FieldName="StudentName">PopWanner</pnp:DataValue>
+              <pnp:DataValue FieldName="Q1NumericGrade">100</pnp:DataValue>
+              <pnp:DataValue FieldName="Q2NumericGrade">75</pnp:DataValue>
+              <pnp:DataValue FieldName="Q3NumericGrade">80</pnp:DataValue>
+              <pnp:DataValue FieldName="Q4NumericGrade">99</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Chris Kent (@theChrisKent)</pnp:DataValue>
+              <pnp:DataValue FieldName="StudentName">Chris Kent</pnp:DataValue>
+              <pnp:DataValue FieldName="Q1NumericGrade">100</pnp:DataValue>
+              <pnp:DataValue FieldName="Q2NumericGrade">80</pnp:DataValue>
+              <pnp:DataValue FieldName="Q3NumericGrade">90</pnp:DataValue>
+              <pnp:DataValue FieldName="Q4NumericGrade">90</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w1-9c6b057a-4eef-415c-93d4-28f4424df09e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-703f0e11-daea-4bdd-82a3-22c0fd3dc68b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-e09aee0f-261e-4db0-9b35-6ec98a9541e4" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w1-42e0cd79-9ef9-4237-8856-4db2a1ce2c5d" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w0-f4658a16-8c38-4ec9-9752-ee8bd2e58532" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w2-9fcbf87c-05ab-4ca3-b4fe-b3dde80edfc2" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://10-westeurope1.pushp.svc.ms/notifications?token=w3-4c9a6993-a5c4-4910-90bc-b110524a8864" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w1-2e853c81-f757-4bac-8426-ba11b1cab1d9" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Project Indicator - Risk Score Indicator" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Project Indicator  Risk Score Indicator" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Project Indicator  Risk Score Indicator/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Project Indicator  Risk Score Indicator/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Project Indicator  Risk Score Indicator/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{C2B5D91E-1EC6-4CB4-BA25-7A0AE2048FB2}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Project Indicator  Risk Score Indicator/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Score" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="Score" Format="Dropdown" Name="Score" Percentage="FALSE" Required="TRUE" Title="Score" Type="Number" ID="{05bc7f1d-b91d-4666-8cfa-a3ab4f5ba161}" SourceID="{{listid:Project Indicator - Risk Score Indicator}}" StaticName="Score" ColName="float1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">PN02-15</pnp:DataValue>
+              <pnp:DataValue FieldName="Score">25</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">PN02-16</pnp:DataValue>
+              <pnp:DataValue FieldName="Score">9</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">PN02-17</pnp:DataValue>
+              <pnp:DataValue FieldName="Score">6</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">PN99-15</pnp:DataValue>
+              <pnp:DataValue FieldName="Score">12</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">400</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">4_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-b40f8f91-bce1-46a3-827f-5114f386b581" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-1308bd3c-9e3f-4fd9-96fe-b41bf74665f0" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-7a79ffb2-28e9-4182-b94a-b11a6b7f02f7" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-c8a139a6-a55d-46c5-8bcd-92dff75df4d5" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://7-westeurope1.pushp.svc.ms/notifications?token=w0-b2c6a959-2f24-49d0-9e85-bf3545a8f51b" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-5f36e3a3-5fed-4333-a628-c0afa35274ea" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Staff Rota Shifts View Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Staff Rota Shifts View Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Staff Rota Shifts View Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Staff Rota Shifts View Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Staff Rota Shifts View Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{FDC011A0-5589-4336-AC37-9A655FBB6C3E}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Staff Rota Shifts View Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Shift1" />
+                <FieldRef Name="Shift2" />
+                <FieldRef Name="Shift3" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Shift1" FillInChoice="FALSE" Format="Dropdown" Name="Shift1" Title="Shift1" Type="MultiChoice" ID="{2c47c1b6-1199-4057-b314-6981c4a7b08f}" Version="2" StaticName="Shift1" SourceID="{{listid:Staff Rota Shifts View Format}}" ColName="ntext2" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Joe</CHOICE>
+                <CHOICE>Sarah</CHOICE>
+                <CHOICE>Debbie</CHOICE>
+                <CHOICE>Adam</CHOICE>
+                <CHOICE>Roy</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field DisplayName="Shift2" FillInChoice="FALSE" Format="Dropdown" Name="Shift2" Title="Shift2" Type="MultiChoice" ID="{46ff0f59-9fd9-4f9b-a164-01f888d66c5c}" SourceID="{{listid:Staff Rota Shifts View Format}}" StaticName="Shift2" ColName="ntext3" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Joe</CHOICE>
+                <CHOICE>Sarah</CHOICE>
+                <CHOICE>Debbie</CHOICE>
+                <CHOICE>Adam</CHOICE>
+                <CHOICE>Roy</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field DisplayName="Shift3" FillInChoice="FALSE" Format="Dropdown" Name="Shift3" Title="Shift3" Type="MultiChoice" ID="{784bd281-eee5-4302-b3e0-6fd0cbd6ccf2}" SourceID="{{listid:Staff Rota Shifts View Format}}" StaticName="Shift3" ColName="ntext4" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Joe</CHOICE>
+                <CHOICE>Sarah</CHOICE>
+                <CHOICE>Debbie</CHOICE>
+                <CHOICE>Adam</CHOICE>
+                <CHOICE>Roy</CHOICE>
+              </CHOICES>
+            </Field>
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Duty Manager</pnp:DataValue>
+              <pnp:DataValue FieldName="Shift1">System.String[]</pnp:DataValue>
+              <pnp:DataValue FieldName="Shift2">System.String[]</pnp:DataValue>
+              <pnp:DataValue FieldName="Shift3">System.String[]</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-68dfe51b-d804-4807-8ac2-2edb1a75f098" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-4d52e583-cc63-4344-9136-05b385c86c6f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w3-7e4edbde-66eb-4d84-8a37-f7a9e4307177" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w0-a4d3253c-955f-4442-b480-cb185e053dfc" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w1-19833f48-ad2d-4083-874b-24f34b617080" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-91af11c4-9eb0-4547-b2fc-512cfad86292" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w2-24679664-86f3-43dd-b98d-947856921a8a" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Text Conditional Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Text Conditional Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Text Conditional Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Text Conditional Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Text Conditional Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{2A98DB68-D9B6-41AF-9646-06926039B0EA}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Text Conditional Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="Status" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field ClientSideComponentId="00000000-0000-0000-0000-000000000000" DisplayName="Status" FillInChoice="FALSE" Format="Dropdown" Name="Status" Title="Status" Type="Choice" ID="{474c0c6c-85ac-44c7-a6ae-ff7afa98244e}" Version="2" StaticName="Status" SourceID="{{listid:Text Conditional Format}}" ColName="nvarchar4" RowOrdinal="0">
+              <CHOICES>
+                <CHOICE>Done</CHOICE>
+                <CHOICE>Blocked</CHOICE>
+                <CHOICE>In progress</CHOICE>
+                <CHOICE>In review</CHOICE>
+              </CHOICES>
+            </Field>
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">HANDS ON tek</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">Done</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">HANDS ON SharePoint</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">Blocked</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">200</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">2_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">HANDS ON Teams</pnp:DataValue>
+              <pnp:DataValue FieldName="Status">In review</pnp:DataValue>
+              <pnp:DataValue FieldName="Order">300</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">3_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-1f01d2e9-bd16-43c2-9755-4b62feceffc1" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w0-d33a4350-593c-40c9-ad6d-43425e7215ba" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-5557a06c-4216-4dc6-919b-eebabad2e5ea" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w0-88df34da-a362-4e7a-80fd-73245dcb3751" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w1-f25edba6-2be9-4868-9228-df04d4ae0547" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w0-66a4f32f-a8c1-4687-bd59-cbae51884de1" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Twitter Format" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Twitter Format" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Twitter Format/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Twitter Format/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Twitter Format/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{5949F4A9-5491-46B3-80BE-A8BF3B1C0DF2}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Twitter Format/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="TweetBy" />
+                <FieldRef Name="TweetByFullName" />
+                <FieldRef Name="TweetDate" />
+                <FieldRef Name="TwitterProfilePic" />
+                <FieldRef Name="ProfileLink" />
+                <FieldRef Name="LinkToTweet" />
+                <FieldRef Name="FullTweet" />
+                <FieldRef Name="NumbRetweets" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field DisplayName="TweetBy" Format="Dropdown" MaxLength="255" Name="TweetBy" Title="TweetBy" Type="Text" ID="{c086fa42-bbde-4f8a-b24c-8b49228245bc}" SourceID="{{listid:Twitter Format}}" StaticName="TweetBy" ColName="nvarchar4" RowOrdinal="0" />
+            <Field DisplayName="TweetByFullName" Format="Dropdown" MaxLength="255" Name="TweetByFullName" Title="TweetByFullName" Type="Text" ID="{e5d0d150-067a-46f8-95ad-0cab9b1e8518}" SourceID="{{listid:Twitter Format}}" StaticName="TweetByFullName" ColName="nvarchar5" RowOrdinal="0" />
+            <Field DisplayName="TweetDate" FriendlyDisplayFormat="Disabled" Format="DateOnly" Name="TweetDate" Title="TweetDate" Type="DateTime" ID="{a98d730d-1a06-4cee-9e2f-49f8b980cf96}" SourceID="{{listid:Twitter Format}}" StaticName="TweetDate" ColName="datetime1" RowOrdinal="0" />
+            <Field DisplayName="TwitterProfilePic" Format="Image" Name="TwitterProfilePic" Title="TwitterProfilePic" Type="URL" ID="{83d29c2c-2a86-4619-bb02-756502416550}" SourceID="{{listid:Twitter Format}}" StaticName="TwitterProfilePic" ColName="nvarchar6" RowOrdinal="0" ColName2="nvarchar7" RowOrdinal2="0" />
+            <Field DisplayName="ProfileLink" Format="Image" Name="ProfileLink" Title="ProfileLink" Type="URL" ID="{43c7e4c6-4556-4704-b350-7cdfba7eb2e2}" SourceID="{{listid:Twitter Format}}" StaticName="ProfileLink" ColName="nvarchar8" RowOrdinal="0" ColName2="nvarchar9" RowOrdinal2="0" />
+            <Field DisplayName="LinkToTweet" Format="Hyperlink" Name="LinkToTweet" Title="LinkToTweet" Type="URL" ID="{39843f6c-3b8e-4890-a05b-f4460e1f2d84}" SourceID="{{listid:Twitter Format}}" StaticName="LinkToTweet" ColName="nvarchar10" RowOrdinal="0" ColName2="nvarchar11" RowOrdinal2="0" />
+            <Field AppendOnly="FALSE" DisplayName="FullTweet" Format="Dropdown" IsolateStyles="FALSE" Name="FullTweet" NumLines="6" RichText="FALSE" RichTextMode="Compatible" Title="FullTweet" Type="Note" ID="{d482ea6d-fef5-4c08-b585-b429f4f43c75}" SourceID="{{listid:Twitter Format}}" StaticName="FullTweet" ColName="ntext2" RowOrdinal="0" />
+            <Field DisplayName="NumbRetweets" Format="Dropdown" Name="NumbRetweets" Percentage="FALSE" Title="NumbRetweets" Type="Number" ID="{a2f11a15-6055-4d62-8a13-be700871eb8f}" SourceID="{{listid:Twitter Format}}" StaticName="NumbRetweets" ColName="float1" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:DataRows UpdateBehavior="Overwrite">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Joao</pnp:DataValue>
+              <pnp:DataValue FieldName="TweetBy">joao12ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="TweetByFullName">João Ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="TweetDate">9/4/2019</pnp:DataValue>
+              <pnp:DataValue FieldName="TwitterProfilePic">https://pbs.twimg.com/profile_images/1117701442167554048/btg98Wqo_400x400.jpg</pnp:DataValue>
+              <pnp:DataValue FieldName="ProfileLink">https://pbs.twimg.com/profile_images/1117701442167554048/btg98Wqo_400x400.jpg,joao12ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="LinkToTweet">https://twitter.com/Joao12Ferreira/status/1169242535031660544,https://twitter.com/Joao12Ferreira/status/1169242535031660544</pnp:DataValue>
+              <pnp:DataValue FieldName="FullTweet">To all #WordPress bloggers 📢 Wouldn't be nice to reach a potencial audience of 13 million users? Add a Share to #MicrosoftTeams button to your blog and get more visitors.  https://teams.handsontek.net/2019/07/14/share-to-microsoft-teams-a-new-wordpress-plugin/ via 
+@joao12ferreira</pnp:DataValue>
+              <pnp:DataValue FieldName="NumbRetweets" />
+              <pnp:DataValue FieldName="Order">100</pnp:DataValue>
+              <pnp:DataValue FieldName="FileLeafRef">1_.000</pnp:DataValue>
+              <pnp:DataValue FieldName="MetaInfo" />
+            </pnp:DataRow>
+          </pnp:DataRows>
+          <pnp:Webhooks>
+            <pnp:Webhook ServerNotificationUrl="https://3-westeurope1.pushp.svc.ms/notifications?token=w0-11d6fa3e-875b-491f-b01a-179d025f7c8a" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w2-501904ff-f5a9-40cd-8e85-e91365aaef79" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://0-westeurope1.pushp.svc.ms/notifications?token=w3-e85b1072-9e83-416d-a33e-b6c28188247e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-217c633e-198e-4213-b4f7-bfbc665ddaa1" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-23ae505a-f067-4b19-a2fb-acdd1f7b810f" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w0-9e0bd808-7018-4841-850d-8a45fc06531e" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://4-westeurope1.pushp.svc.ms/notifications?token=w2-3eaa9fa2-1c68-4dda-9923-f291e96b9fd3" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w1-9297f3ed-10b2-4438-9e06-74ceb16a0af4" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://5-westeurope1.pushp.svc.ms/notifications?token=w1-9cd5aedf-109b-4021-a637-ae992dea2676" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-19eed853-4718-4464-97d8-ee4d268ecb06" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://1-westeurope1.pushp.svc.ms/notifications?token=w0-6b8fd850-7292-4f97-99da-dfc0bf278516" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w3-3620addd-441c-4717-b133-3d6204cb5609" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://2-westeurope1.pushp.svc.ms/notifications?token=w0-99f2d3e7-e00d-474a-9fb3-4cdb0f595feb" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://9-westeurope1.pushp.svc.ms/notifications?token=w2-e735749c-312f-499b-8559-68a5f588da1d" ExpiresInDays="1" />
+            <pnp:Webhook ServerNotificationUrl="https://7-westeurope1.pushp.svc.ms/notifications?token=w0-203f779f-8893-4748-91f5-6f0a7b529248" ExpiresInDays="1" />
+          </pnp:Webhooks>
+        </pnp:ListInstance>
+      </pnp:Lists>
+      <pnp:ClientSidePages>
+        <pnp:ClientSidePage PageName="Home.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Home" EnableComments="false" Title="Home">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="TwoColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="QuickLinks" JsonControlData="{&quot;id&quot;: &quot;c70391ea-0b10-4ee9-b2b4-006d3fcad0cd&quot;, &quot;instanceId&quot;: &quot;aa22e5be-5dbf-49d6-9a56-80ea5d2527f6&quot;, &quot;title&quot;: &quot;Quick links&quot;, &quot;description&quot;: &quot;Add links to important documents and pages.&quot;, &quot;dataVersion&quot;: &quot;2.2&quot;, &quot;properties&quot;: {&quot;items&quot;:[{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;79f6c732-439e-41fd-8a50-0a1ba7591146&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:22},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;ff36773a-155f-42b5-8847-4735de323f0f&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:21},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;34f20321-ec99-4aee-b97c-5f48a324c29e&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:20},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;940108db-b3aa-441d-abff-20c99661ec86&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:19},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;2ae00791-c840-4c3e-8eb6-f0de40730bf5&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:18},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;a8ed7dc0-2871-4708-b276-c23b1a2b826e&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:17},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;f67c0160-416a-4b89-8819-3d4142e1442b&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:16},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;3d68cee4-305f-454c-b4e1-cd045e838ea0&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:15},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;ef99414b-82d9-4457-8f4d-ed6008fc08c7&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:14},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;9015da64-17ed-4ba4-97b9-d89a5a5d661b&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:13},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;57055a78-2a9e-4f44-83c6-e7b87db2e242&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:12},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;234e1918-4fb3-4d6a-b111-1adb70e18991&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:11},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;f8decf30-6557-4efb-af66-c253ca43bce9&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:10},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;{listid:Document Library Items in Tiles Format}&quot;,&quot;uniqueId&quot;:&quot;bdee2737-234d-4000-a376-44332443653a&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:9},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;e14c0ff0-2c8a-4d02-802b-ab218a1ef835&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:8},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;8a87badf-de9d-48bf-b42f-55620074bc46&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:7},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;0af8ff13-d32f-47a4-9d47-aad9ce243023&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:6},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;33ca3bc5-6b6a-43a4-aca1-5b94fe1bebc0&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:5},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;d6450431-b47f-424a-a5bb-e8c84b72f781&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:4},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;e6f2bef7-01df-470b-9d76-43bab7a8f633&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:3},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;1e9b2729-3ac7-4fa8-8865-bfc1e6630c0b&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:2},{&quot;sourceItem&quot;:{&quot;guids&quot;:{&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;listId&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;a24edf3d-e45e-439c-8420-7202b463b218&quot;},&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:1}],&quot;isMigrated&quot;:true,&quot;layoutId&quot;:&quot;List&quot;,&quot;shouldShowThumbnail&quot;:true,&quot;buttonLayoutOptions&quot;:{&quot;showDescription&quot;:false,&quot;buttonTreatment&quot;:2,&quot;iconPositionType&quot;:2,&quot;textAlignmentVertical&quot;:2,&quot;textAlignmentHorizontal&quot;:2,&quot;linesOfText&quot;:2},&quot;listLayoutOptions&quot;:{&quot;showDescription&quot;:false,&quot;showIcon&quot;:true},&quot;waffleLayoutOptions&quot;:{&quot;iconSize&quot;:1,&quot;onlyShowThumbnail&quot;:false},&quot;hideWebPartWhenEmpty&quot;:true,&quot;dataProviderId&quot;:&quot;QuickLinks&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;siteId&quot;:&quot;{sitecollectionid}&quot;,&quot;pane_link_button&quot;:0}, &quot;serverProcessedContent&quot;: {&quot;htmlStrings&quot;:{},&quot;searchablePlainTexts&quot;:{&quot;title&quot;:&quot;View Formatting&quot;,&quot;items[0].title&quot;:&quot;Small Card&quot;,&quot;items[1].title&quot;:&quot;Twitter Format&quot;,&quot;items[2].title&quot;:&quot;Text Conditional Format&quot;,&quot;items[3].title&quot;:&quot;Rota CSS Table&quot;,&quot;items[4].title&quot;:&quot;Retail Account&quot;,&quot;items[5].title&quot;:&quot;Resource Catalog&quot;,&quot;items[6].title&quot;:&quot;Profile Card&quot;,&quot;items[7].title&quot;:&quot;Planner Inspired Task Card&quot;,&quot;items[8].title&quot;:&quot;Current User's Rows&quot;,&quot;items[9].title&quot;:&quot;Multi-line View&quot;,&quot;items[10].title&quot;:&quot;Generic Tile Format&quot;,&quot;items[11].title&quot;:&quot;Generic Risk Score Format&quot;,&quot;items[12].title&quot;:&quot;Generic Numeric Average Comparison&quot;,&quot;items[13].title&quot;:&quot;Document Library Thumbnails&quot;,&quot;items[14].title&quot;:&quot;Date Conditional Format&quot;,&quot;items[15].title&quot;:&quot;Content Type Format&quot;,&quot;items[16].title&quot;:&quot;Contact Card Format&quot;,&quot;items[17].title&quot;:&quot;Column Graph Format&quot;,&quot;items[18].title&quot;:&quot;Choice Conditional Format&quot;,&quot;items[19].title&quot;:&quot;Bulletin Board Format&quot;,&quot;items[20].title&quot;:&quot;Birthday Format&quot;,&quot;items[21].title&quot;:&quot;Alternating Rows&quot;,&quot;items[0].description&quot;:&quot;&quot;,&quot;items[1].description&quot;:&quot;&quot;,&quot;items[2].description&quot;:&quot;&quot;,&quot;items[3].description&quot;:&quot;&quot;,&quot;items[4].description&quot;:&quot;&quot;,&quot;items[5].description&quot;:&quot;&quot;,&quot;items[6].description&quot;:&quot;&quot;,&quot;items[7].description&quot;:&quot;&quot;,&quot;items[8].description&quot;:&quot;&quot;,&quot;items[9].description&quot;:&quot;&quot;,&quot;items[10].description&quot;:&quot;&quot;,&quot;items[11].description&quot;:&quot;&quot;,&quot;items[12].description&quot;:&quot;&quot;,&quot;items[13].description&quot;:&quot;&quot;,&quot;items[14].description&quot;:&quot;&quot;,&quot;items[15].description&quot;:&quot;&quot;,&quot;items[16].description&quot;:&quot;&quot;,&quot;items[17].description&quot;:&quot;&quot;,&quot;items[18].description&quot;:&quot;&quot;,&quot;items[19].description&quot;:&quot;&quot;,&quot;items[20].description&quot;:&quot;&quot;,&quot;items[21].description&quot;:&quot;&quot;,&quot;items[0].altText&quot;:&quot;&quot;,&quot;items[1].altText&quot;:&quot;&quot;,&quot;items[2].altText&quot;:&quot;&quot;,&quot;items[3].altText&quot;:&quot;&quot;,&quot;items[4].altText&quot;:&quot;&quot;,&quot;items[5].altText&quot;:&quot;&quot;,&quot;items[6].altText&quot;:&quot;&quot;,&quot;items[7].altText&quot;:&quot;&quot;,&quot;items[8].altText&quot;:&quot;&quot;,&quot;items[9].altText&quot;:&quot;&quot;,&quot;items[10].altText&quot;:&quot;&quot;,&quot;items[11].altText&quot;:&quot;&quot;,&quot;items[12].altText&quot;:&quot;&quot;,&quot;items[13].altText&quot;:&quot;&quot;,&quot;items[14].altText&quot;:&quot;&quot;,&quot;items[15].altText&quot;:&quot;&quot;,&quot;items[16].altText&quot;:&quot;&quot;,&quot;items[17].altText&quot;:&quot;&quot;,&quot;items[18].altText&quot;:&quot;&quot;,&quot;items[19].altText&quot;:&quot;&quot;,&quot;items[20].altText&quot;:&quot;&quot;,&quot;items[21].altText&quot;:&quot;&quot;},&quot;imageSources&quot;:{&quot;items[0].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/79f6c732-439e-41fd-8a50-0a1ba7591146/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[1].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/ff36773a-155f-42b5-8847-4735de323f0f/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[2].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/34f20321-ec99-4aee-b97c-5f48a324c29e/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[3].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/940108db-b3aa-441d-abff-20c99661ec86/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[4].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/2ae00791-c840-4c3e-8eb6-f0de40730bf5/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[5].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/a8ed7dc0-2871-4708-b276-c23b1a2b826e/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[6].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/f67c0160-416a-4b89-8819-3d4142e1442b/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[8].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/ef99414b-82d9-4457-8f4d-ed6008fc08c7/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[9].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/9015da64-17ed-4ba4-97b9-d89a5a5d661b/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[10].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/57055a78-2a9e-4f44-83c6-e7b87db2e242/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[11].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/234e1918-4fb3-4d6a-b111-1adb70e18991/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[12].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/f8decf30-6557-4efb-af66-c253ca43bce9/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[13].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/bdee2737-234d-4000-a376-44332443653a/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[14].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/e14c0ff0-2c8a-4d02-802b-ab218a1ef835/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[15].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/8a87badf-de9d-48bf-b42f-55620074bc46/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[16].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/0af8ff13-d32f-47a4-9d47-aad9ce243023/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[17].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/33ca3bc5-6b6a-43a4-aca1-5b94fe1bebc0/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[18].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/d6450431-b47f-424a-a5bb-e8c84b72f781/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[19].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/e6f2bef7-01df-470b-9d76-43bab7a8f633/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[20].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/1e9b2729-3ac7-4fa8-8865-bfc1e6630c0b/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;,&quot;items[21].rawPreviewImageUrl&quot;:&quot;{site}/_api/v2.1/sites/handsonsp.sharepoint.com,{sitecollectionid},{siteid}/items/a24edf3d-e45e-439c-8420-7202b463b218/driveItem/thumbnails/0/c400x99999/content?preferNoRedirect=true&quot;},&quot;links&quot;:{&quot;baseUrl&quot;:&quot;{hosturl}{site}&quot;,&quot;items[0].sourceItem.url&quot;:&quot;{site}/Lists/Small%20Card/AllItems.aspx&quot;,&quot;items[1].sourceItem.url&quot;:&quot;{site}/Lists/Twitter%20Format/AllItems.aspx&quot;,&quot;items[2].sourceItem.url&quot;:&quot;{site}/Lists/Text%20Conditional%20Format/AllItems.aspx&quot;,&quot;items[3].sourceItem.url&quot;:&quot;{site}/Lists/Staff%20Rota%20Shifts%20View%20Format/AllItems.aspx&quot;,&quot;items[4].sourceItem.url&quot;:&quot;{site}/Lists/Retail%20Account%20Sample/AllItems.aspx&quot;,&quot;items[5].sourceItem.url&quot;:&quot;{site}/Lists/Resource%20Catalog%20Sample/AllItems.aspx&quot;,&quot;items[6].sourceItem.url&quot;:&quot;{site}/Lists/User%20Profile%20Card/AllItems.aspx&quot;,&quot;items[7].sourceItem.url&quot;:&quot;{hosturl}{site}/Lists/Planner%20Inspired%20Task%20Cards/AllItems.aspx&quot;,&quot;items[8].sourceItem.url&quot;:&quot;{site}/Lists/Current%20Users%20Rows/AllItems.aspx&quot;,&quot;items[9].sourceItem.url&quot;:&quot;{site}/Lists/Multiline%20view/AllItems.aspx&quot;,&quot;items[10].sourceItem.url&quot;:&quot;{site}/Lists/Generic%20Tile%20Format/AllItems.aspx&quot;,&quot;items[11].sourceItem.url&quot;:&quot;{site}/Lists/Project%20Indicator%20%20Risk%20Score%20Indicator/AllItems.aspx&quot;,&quot;items[12].sourceItem.url&quot;:&quot;{site}/Lists/Numeric%20Average%20Comparison/AllItems.aspx&quot;,&quot;items[13].sourceItem.url&quot;:&quot;{site}/Document%20Library%20Items%20in%20Tiles%20Format/Forms/AllItems.aspx&quot;,&quot;items[14].sourceItem.url&quot;:&quot;{site}/Lists/Conditional%20formatting%20based%20on%20date/AllItems.aspx&quot;,&quot;items[15].sourceItem.url&quot;:&quot;{site}/Lists/Fruit/AllItems.aspx&quot;,&quot;items[16].sourceItem.url&quot;:&quot;{site}/Lists/Contact%20Card%20Row%20Format/AllItems.aspx&quot;,&quot;items[17].sourceItem.url&quot;:&quot;{site}/Lists/Column%20Graph%20format/AllItems.aspx&quot;,&quot;items[18].sourceItem.url&quot;:&quot;{site}/Lists/Choice%20Conditional%20Formatting/AllItems.aspx&quot;,&quot;items[19].sourceItem.url&quot;:&quot;{site}/Lists/Bulletin%20Board/AllItems.aspx&quot;,&quot;items[20].sourceItem.url&quot;:&quot;{site}/Lists/Birthday%20Row%20Format/AllItems.aspx&quot;,&quot;items[21].sourceItem.url&quot;:&quot;{site}/Lists/Alternating%20Rows/AllItems.aspx&quot;},&quot;componentDependencies&quot;:{&quot;layoutComponentId&quot;:&quot;706e33c8-af37-4e7b-9d22-6e5694d92a6f&quot;}}, &quot;dynamicDataPaths&quot;: {}, &quot;dynamicDataValues&quot;: {}}" ControlId="c70391ea-0b10-4ee9-b2b4-006d3fcad0cd" Order="1" Column="1" />
+                <pnp:CanvasControl WebPartType="QuickLinks" JsonControlData="{&quot;id&quot;: &quot;c70391ea-0b10-4ee9-b2b4-006d3fcad0cd&quot;, &quot;instanceId&quot;: &quot;e2fa098f-11f3-46ed-8564-f39013a58b89&quot;, &quot;title&quot;: &quot;Quick links&quot;, &quot;description&quot;: &quot;Add links to important documents and pages.&quot;, &quot;dataVersion&quot;: &quot;2.2&quot;, &quot;properties&quot;: {&quot;items&quot;:[{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:22},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:21},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:20},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:19},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:18},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:17},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:16},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:15},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:14},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:13},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:12},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:11},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:10},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:9},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:8},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:7},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:6},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:5},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:4},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:3},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:2},{&quot;sourceItem&quot;:{&quot;itemType&quot;:2,&quot;fileExtension&quot;:&quot;&quot;,&quot;progId&quot;:&quot;&quot;},&quot;thumbnailType&quot;:3,&quot;id&quot;:1}],&quot;isMigrated&quot;:true,&quot;layoutId&quot;:&quot;List&quot;,&quot;shouldShowThumbnail&quot;:true,&quot;buttonLayoutOptions&quot;:{&quot;showDescription&quot;:false,&quot;buttonTreatment&quot;:2,&quot;iconPositionType&quot;:2,&quot;textAlignmentVertical&quot;:2,&quot;textAlignmentHorizontal&quot;:2,&quot;linesOfText&quot;:2},&quot;listLayoutOptions&quot;:{&quot;showDescription&quot;:false,&quot;showIcon&quot;:true},&quot;waffleLayoutOptions&quot;:{&quot;iconSize&quot;:1,&quot;onlyShowThumbnail&quot;:false},&quot;hideWebPartWhenEmpty&quot;:true,&quot;dataProviderId&quot;:&quot;QuickLinks&quot;,&quot;webId&quot;:&quot;{siteid}&quot;,&quot;siteId&quot;:&quot;{sitecollectionid}&quot;}, &quot;serverProcessedContent&quot;: {&quot;htmlStrings&quot;:{},&quot;searchablePlainTexts&quot;:{&quot;title&quot;:&quot;GitHub&quot;,&quot;items[0].title&quot;:&quot;Small Card&quot;,&quot;items[1].title&quot;:&quot;Twitter Format&quot;,&quot;items[2].title&quot;:&quot;Text Conditional Format&quot;,&quot;items[3].title&quot;:&quot;Rota CSS Table&quot;,&quot;items[4].title&quot;:&quot;Retail Account&quot;,&quot;items[5].title&quot;:&quot;Resource Catalog&quot;,&quot;items[6].title&quot;:&quot;Profile Card&quot;,&quot;items[7].title&quot;:&quot;Planner Inspired Task Card&quot;,&quot;items[8].title&quot;:&quot;Current User's Rows&quot;,&quot;items[9].title&quot;:&quot;Multi-line View&quot;,&quot;items[10].title&quot;:&quot;Generic Tile Format&quot;,&quot;items[11].title&quot;:&quot;Generic Risk Score Format&quot;,&quot;items[12].title&quot;:&quot;Generic Numeric Average Comparison&quot;,&quot;items[13].title&quot;:&quot;Document Library Thumbnails&quot;,&quot;items[14].title&quot;:&quot;Date Conditional Format&quot;,&quot;items[15].title&quot;:&quot;Content Type Format&quot;,&quot;items[16].title&quot;:&quot;Contact Card Format&quot;,&quot;items[17].title&quot;:&quot;Column Graph Format&quot;,&quot;items[18].title&quot;:&quot;Choice Conditional Format&quot;,&quot;items[19].title&quot;:&quot;Bulletin Board Format&quot;,&quot;items[20].title&quot;:&quot;Birthday Format&quot;,&quot;items[21].title&quot;:&quot;Alternating Rows&quot;,&quot;items[0].description&quot;:&quot;&quot;,&quot;items[1].description&quot;:&quot;&quot;,&quot;items[2].description&quot;:&quot;&quot;,&quot;items[3].description&quot;:&quot;&quot;,&quot;items[4].description&quot;:&quot;&quot;,&quot;items[5].description&quot;:&quot;&quot;,&quot;items[6].description&quot;:&quot;&quot;,&quot;items[7].description&quot;:&quot;&quot;,&quot;items[8].description&quot;:&quot;&quot;,&quot;items[9].description&quot;:&quot;&quot;,&quot;items[10].description&quot;:&quot;&quot;,&quot;items[11].description&quot;:&quot;&quot;,&quot;items[12].description&quot;:&quot;&quot;,&quot;items[13].description&quot;:&quot;&quot;,&quot;items[14].description&quot;:&quot;&quot;,&quot;items[15].description&quot;:&quot;&quot;,&quot;items[16].description&quot;:&quot;&quot;,&quot;items[17].description&quot;:&quot;&quot;,&quot;items[18].description&quot;:&quot;&quot;,&quot;items[19].description&quot;:&quot;&quot;,&quot;items[20].description&quot;:&quot;&quot;,&quot;items[21].description&quot;:&quot;&quot;,&quot;items[0].altText&quot;:&quot;&quot;,&quot;items[1].altText&quot;:&quot;&quot;,&quot;items[2].altText&quot;:&quot;&quot;,&quot;items[3].altText&quot;:&quot;&quot;,&quot;items[4].altText&quot;:&quot;&quot;,&quot;items[5].altText&quot;:&quot;&quot;,&quot;items[6].altText&quot;:&quot;&quot;,&quot;items[7].altText&quot;:&quot;&quot;,&quot;items[8].altText&quot;:&quot;&quot;,&quot;items[9].altText&quot;:&quot;&quot;,&quot;items[10].altText&quot;:&quot;&quot;,&quot;items[11].altText&quot;:&quot;&quot;,&quot;items[12].altText&quot;:&quot;&quot;,&quot;items[13].altText&quot;:&quot;&quot;,&quot;items[14].altText&quot;:&quot;&quot;,&quot;items[15].altText&quot;:&quot;&quot;,&quot;items[16].altText&quot;:&quot;&quot;,&quot;items[17].altText&quot;:&quot;&quot;,&quot;items[18].altText&quot;:&quot;&quot;,&quot;items[19].altText&quot;:&quot;&quot;,&quot;items[20].altText&quot;:&quot;&quot;,&quot;items[21].altText&quot;:&quot;&quot;},&quot;imageSources&quot;:{},&quot;links&quot;:{&quot;baseUrl&quot;:&quot;{hosturl}{site}&quot;,&quot;items[0].sourceItem.url&quot;:&quot;https://github.com/DRamalho92/ListFormattingSmallCard&quot;,&quot;items[1].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/twitter-format&quot;,&quot;items[2].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/text-conditional-format&quot;,&quot;items[3].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/rota-css-table&quot;,&quot;items[4].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/retail-account&quot;,&quot;items[5].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/resource-catalog&quot;,&quot;items[6].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/profile-card&quot;,&quot;items[7].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/planner-inspired-task-card&quot;,&quot;items[8].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/multi-person-currentuser-rowclass&quot;,&quot;items[9].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/multi-line-view&quot;,&quot;items[10].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/generic-tile-format&quot;,&quot;items[11].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/generic-risk-score-format&quot;,&quot;items[12].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/generic-numeric-average-comparison&quot;,&quot;items[13].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/document-library-thumbnails&quot;,&quot;items[14].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/date-conditional-format&quot;,&quot;items[15].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/contenttype-format&quot;,&quot;items[16].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/contact-card-format&quot;,&quot;items[17].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/column-graph-format&quot;,&quot;items[18].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/choice-conditional-format&quot;,&quot;items[19].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/bulletin-board-format&quot;,&quot;items[20].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/birthday-format&quot;,&quot;items[21].sourceItem.url&quot;:&quot;https://github.com/SharePoint/sp-dev-list-formatting/tree/master/view-samples/alternating-rowclass&quot;},&quot;componentDependencies&quot;:{&quot;layoutComponentId&quot;:&quot;706e33c8-af37-4e7b-9d22-6e5694d92a6f&quot;}}, &quot;dynamicDataPaths&quot;: {}, &quot;dynamicDataValues&quot;: {}}" ControlId="c70391ea-0b10-4ee9-b2b4-006d3fcad0cd" Order="1" Column="2" />
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+          <pnp:Header Type="Default" LayoutType="FullWidthImage" TextAlignment="Center" ShowTopicHeader="false" ShowPublishDate="false" TopicHeader="" AlternativeText="" Authors="" AuthorByLineId="-1" />
+          <pnp:Security>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="false" />
+          </pnp:Security>
+        </pnp:ClientSidePage>
+      </pnp:ClientSidePages>
+      <pnp:Files>
+        <pnp:Directory Src="Fruit" Folder="{site}/Shared Documents/Fruit/" Overwrite="true" Level="Published" Recursive="false" IncludedExtensions="*.*" ExcludedExtensions="" MetadataMappingFile="">
+        </pnp:Directory>
+		<pnp:Directory Src="Docs" Folder="{site}/Document Library Items in Tiles Format/" Overwrite="true" Level="Published" Recursive="false" IncludedExtensions="*.*" ExcludedExtensions="" MetadataMappingFile="">
+        </pnp:Directory>
+      </pnp:Files>
+	</pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

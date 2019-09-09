@@ -3,11 +3,14 @@
 $siteURL = "https://contoso.sharepoint.com/sites/ViewTemplates"
 $user = "user@contoso.onmicrosoft.com"
 
+$path = [regex]::Replace($MyInvocation.MyCommand.Definition, "\\ApplyTemplate.ps1", "")
+cd $path
+
 Connect-PnPOnline -Url $siteURL 
 
 #Apply template without content
 
-Apply-PnPProvisioningTemplate -path ("{0}/listFormating.xml" -f $PSScriptRoot) 
+Apply-PnPProvisioningTemplate -path listFormating.xml
 
 
 #Add user fields to the lists

@@ -1,4 +1,4 @@
-﻿#Variables
+#Variables
 
 $siteURL = "https://contoso.sharepoint.com/sites/ViewTemplates"
 $user = "user@contoso.onmicrosoft.com"
@@ -7,7 +7,7 @@ Connect-PnPOnline -Url $siteURL
 
 #Apply template without content
 
-Apply-PnPProvisioningTemplate -path litsFormating.xml 
+Apply-PnPProvisioningTemplate -path ("{0}/listFormating.xml" -f $PSScriptRoot) 
 
 
 #Add user fields to the lists
